@@ -1,0 +1,9 @@
+template <typename T> void Vector<T>::shrink() //声明shrink函数
+{
+  if ( _capacity < DEFAULT_CAPACITY << 1 ) return ; //保证空间不会收缩到默认的容量以下
+  if ( _size << 2 > _capacity ) return; //如果当前数据规模大于容量的一般，则停止收缩，直接返回函数的调用对象
+  T* oldElem = _elem; elem = new T[_capacity >>= 1]; //定义一个新的空间oldElem存储原有的_elem,并将_elem的大小缩小为原来的一半
+  for ( int i = 0; i < _size; i++ ) _elem[i] = oldElem[i]; //利用for循环将oldElem也就是原有得_elem里面的数据复制到缩小后的_elem中
+  delete [] oldElem; //删除创造的新空间oldElem
+ }
+ 
