@@ -1,0 +1,14 @@
+//operator[]_reload
+template <typename T> Vector<T>::operator[] ( Rank r ) const //重载[]操作运算符函数
+{
+	return _elem[r]; //返回空间中指定位置r所存储的数据
+}
+
+
+//permute
+template <typename T> void permute ( Vector<T>&V ) //permute函数模板声明
+{
+  	for ( int i = V.size(); i > 0; i-- ) //由后往前遍历V中的所有元素
+	swap ( V [i - 1], V[rand() % i] ); //任意交换V[i - 1] 和 V[0,i)中的任意元素
+}
+
