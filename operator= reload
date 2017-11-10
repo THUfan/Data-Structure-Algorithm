@@ -1,0 +1,6 @@
+template <typename T> Vector<T>& Vector<T>::operator= (Vector<T> const& v) //运算符=的重载模板的声明
+{
+	if( _elem ) delete [] _elem;//释放_elem中的原有的内容
+	copyForm ( V._elem, 0, V.size() ); //调用copyForm函数，将[0,V.size)复制到V._elem的[0，V.size)中
+	return *this;//返回当前对象的引用，以便于链式赋值
+}
