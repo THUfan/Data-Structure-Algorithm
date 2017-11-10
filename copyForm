@@ -1,0 +1,7 @@
+template <typename T>
+void Vector<T>::copyForm ( T const* A, Rank lo, Rank hi) //将A中的元素为蓝本逐一复制到向量空间中
+{
+	_elem = new T[_capacity = 2 * ( hi - lo )]; _size = 0; //分配向量空间为2倍默认的空间，规模清零
+	while ( lo < hi )  //复制A中的[lo,hi）的元素
+		_elem[_size++] = A[lo++]; //将A中的[lo,hi)的元素复制到_elme的[0.hi-lo)
+}
