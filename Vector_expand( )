@@ -1,0 +1,9 @@
+template <typename T> void Vector<T>::expand()//向量空间不足的扩容模板类的声明
+{
+  if ( _size < _capacity ) return ; //如果没有满员的时候，不必扩容，终止扩容函数，直接返回函数的调用者
+  if (_capacity < DEFAULT_CAPACITY ) _capacity = DEFAULT_CAPACITY; //确保当前容量不低于最小容量
+  T* oldElem = _elem; _elem = new T[_capacity <<= 1]; //定义一个新的空间oldElem,并复制_elem，然后令—elem空间加倍
+  for ( int i = 0; i < _size; i++ )
+    _elme[i] = oldElem[i]; //利用for循环将oldElem也就是elem原有的内容复制到扩容后的_elem中
+   delete [] oldElem; //释放空间
+ }
